@@ -1,7 +1,10 @@
 == The story behind this solution pattern
 
-A description of the story that was used to build the demo and architectures of this SP.
+Globex is a fictitious company. The company recently started a digital transformation journey.  
+As part of this initiative, a development team has been tasked to study the migration of the legacy Fuse 6 parc of applications to the new, cloud-native, serverless Red Hat Build of Camel.  
+At first glance, the migration seems to require a lot of effort, as changes must happen at all technical layers of the applications.
+
 
 == The Solution
 
-This is a summary of the solution
+The dev team decides to leverage the Camel migration templates in order to reduce the migration effort to its bare minimum.

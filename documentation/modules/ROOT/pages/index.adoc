@@ -4,17 +4,21 @@
 :sectlinks:
 :doctype: book
 
-A brief introduction of this solution pattern.
+With this solution pattern you will perform Camel v2 to Camel v3 or v4 migrations in a faster way.
+Performing such a migration can be scary as th effort is not limited to migrating the high leverl Camel routes.
+Indeed, many other underlying technical components (JDK version, Runtime type, XML format...) are involved in the migration.
+This solution pattern proposes an accelerated path to performing such a migration by abstracting all those technical details, leaving it to the migration of the high level integration logic .
 
 include::content-overview.adoc[]
 
 [#use-cases]
 == Use cases
 
-Common use cases that can be address with this architecture are:
+Common use cases that can be address with this solution are:
 
-- xyz
-- xyz
+- migrate Fuse 6.x (Blueprint XML, Spring XML or Java) applications to the Red Hat Build of Camel, targeting either Springoot 3, Quarkus or the CamelK Serverless runtime.
+- migrate Fuse 7 (Karaf or Springboot) applications to the Red Hat Build of Camel, targeting either Springboot 3, Quarkus or the CamelK Serverless runtime.
+- start writing Camel 3.x or 4.x applications right away with no effort
 
 include::01-pattern.adoc[]
 
