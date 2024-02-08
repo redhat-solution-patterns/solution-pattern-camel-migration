@@ -1,4 +1,4 @@
-= Solution Pattern: Name Template
+= Solution Pattern: Migrating from Red Hat Fuse to Red build of Apache Camel
 :sectnums:
 :sectlinks:
 :doctype: book
@@ -11,10 +11,14 @@ Those templates contains placeholders where code and configration just need to b
 
 == Common Challenges 
 A major migration is always a technical challenge.
-Custom libraries can show conflicts with new ones; others might be deprecated with a need for a complete rewriting.
-Some important architectural concerns also need to be taken into consideration, like the switch from Fuse Fabric to Openshift as the applications management solution, or moving away from Hawtio as the observability platform.
+
+* Custom libraries can show conflicts with new ones; others might be deprecated with a need for a complete rewriting.
+* Some important architectural concerns also need to be taken into consideration, like the switch from Fuse Fabric to Red Hat OpenShift as the applications management solution, or moving away from Hawtio as the observability platform.
+
 However, the migration of a Camel application should stick to a Camel-centric discussion, effort and design.
-Other elements such as underlying JDK version, underlying runtime characteristics, configuration keys name and values... should no represent a significant part of the migration effort.
+
+Other elements such as underlying JDK version, underlying runtime characteristics, configuration keys name and values, should not represent a significant part of the migration effort.
+
 As a migration does not bring immediate new business value, it's important that the effort it requires be as low as possible, and that its duration be as short as possible.
 
 
@@ -25,7 +29,7 @@ As a migration does not bring immediate new business value, it's important that 
 * https://www.redhat.com/en/technologies/cloud-computing/openshift[Red Hat OpenShift]
 * Red Hat Application Foundation
 ** https://access.redhat.com/products/quarkus[Quarkus]
-** https://developers.redhat.com/products/redhat-build-of-camel/overview[Red Hat Build of Camel]
+** https://developers.redhat.com/products/redhat-build-of-camel/overview[Red Hat build of Camel]
 
 
 [#in_depth]
@@ -38,8 +42,9 @@ The present demo will take a legacy API developed in Jboss Fuse 6.2 on Karaf, in
 It's suggested that such an application targets the Quarkus runtime.
 The provided Quarkus template is 100% compatible with CamelK, so the resutling migrated application is immediately ready to be added to a serverless stack.
 
-
+//// 
 [#more_tech]
 == About the Technology Stack
 
 If you want to include more details about the tech stack you used, this is the place.
+ ////
