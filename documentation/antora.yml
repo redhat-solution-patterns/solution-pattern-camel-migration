@@ -1,4 +1,4 @@
-name: solution-pattern-fuse-camel
+name: solution-pattern-camel-migration
 title: Migrating from Red Hat Fuse to Red build of Apache Camel
 version: master
 nav:
