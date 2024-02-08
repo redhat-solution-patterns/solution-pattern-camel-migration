@@ -1,4 +1,4 @@
-= Solution Pattern: Name Template
+= Solution Pattern: Migrating from Red Hat Fuse to Red build of Apache Camel
 :sectnums:
 :sectlinks:
 :doctype: book

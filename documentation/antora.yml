@@ -1,5 +1,5 @@
-name: solution-pattern-template
-title: Template Tutorial
+name: solution-pattern-camel-migration
+title: Migrating from Red Hat Fuse to Red build of Apache Camel
 version: master
 nav:
   - modules/ROOT/nav.adoc

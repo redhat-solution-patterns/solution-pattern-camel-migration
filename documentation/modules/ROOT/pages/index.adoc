@@ -1,15 +1,21 @@
-= Solution Patterns: Template Name
+= Solution Patterns: Fuse to Apache Camel migration
 :page-layout: home
 :sectnums:
 :sectlinks:
 :doctype: book
 
-With this solution pattern you will perform Camel v2 to Camel v3 or v4 migrations in a faster way.
-Performing such a migration can be scary as th effort is not limited to migrating the high leverl Camel routes.
-Indeed, many other underlying technical components (JDK version, Runtime type, XML format...) are involved in the migration.
-This solution pattern proposes an accelerated path to performing such a migration by abstracting all those technical details, leaving it to the migration of the high level integration logic .
+Application Development is evolving as the modern Hybrid Cloud and cloud-native architectures drive new demands on applications.  As a part of this continual evolution, we are evolving our product offering from Red Hat Fuse to the Red Hat build of Apache Camel, allowing us to address a broader set of customer deployment use cases.
 
-include::content-overview.adoc[]
+As  Red Hat Fuse approaches product End of Life (EOL) on June 30, 2024,  Apache Camel is the natural go-forward solution for integrations built around Red Hat Fuse which is based on an older version of Apache Camel. Fuse will remain in the https://access.redhat.com/support/policy/updates/jboss_notes#phases[maintenance life cycle^] until its EOL. 
+
+The Red Hat build of Apache Camel is the evolution for Red Hat Fuse, and  is a powerful, versatile framework for application integration. It also includes running Camel on Quarkus and Spring Boot runtimes in both on-premise and cloud environments, including the Camel K operator which is the best starting point for Camel deployments on OpenShift.
+
+Performing such a migration can be scary as the effort is not just limited to migrating the high level Camel routes. Indeed, many other underlying technical components (JDK version, Runtime type, XML format...) are involved in the migration.
+
+With this solution pattern you will find a guided way to perform Apache Camel v2 to Camel v3 or v4 migrations in a faster way. This solution pattern proposes an accelerated path to performing such a migration by abstracting all those technical details, leaving it to the migration of the high level integration logic .
+
+
+Contributors: _Michael Thirion (Red Hat)_
 
 [#use-cases]
 == Use cases
@@ -20,7 +26,14 @@ Common use cases that can be address with this solution are:
 - migrate Fuse 7 (Karaf or Springboot) applications to the Red Hat Build of Camel, targeting either Springboot 3, Quarkus or the CamelK Serverless runtime.
 - start writing Camel 3.x or 4.x applications right away with no effort
 
-include::01-pattern.adoc[]
 
-== Explore more solution patterns
-include::https://raw.githubusercontent.com/redhat-solution-patterns/redhat-solution-patterns.github.io/master/documentation/modules/ROOT/pages/solution-pattern-list.adoc[]
+== The story behind this solution pattern
+
+The development team of Globex, the fictitious retail company, has been tasked to study the migration of the legacy Fuse 6 of applications to the new, cloud-native, serverless Red Hat Build of Camel.  
+At first glance, the migration seems to require a lot of effort, as changes must happen at all technical layers of the applications.
+
+
+== The Solution
+
+The dev team decides to leverage the Camel migration templates in order to reduce the migration effort to its bare minimum.
+
