@@ -1,0 +1,7 @@
+
+= Solution Pattern: Migrating from Red Hat Fuse to Red build of Apache Camel
+
+== Developer Resources
+* https://developers.redhat.com/products/redhat-build-of-apache-camel/overview[The Red Hat build of Apache Camel Overview ^]
+* https://access.redhat.com/documentation/en-us/red_hat_build_of_apache_camel/[Product Documentation for Red Hat build of Apache Camel ^]
+* https://developers.redhat.com/products/redhat-build-of-apache-camel/getting-started[Sandbox hands-on tutorials ^]

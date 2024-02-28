@@ -36,11 +36,11 @@ As a migration does not bring immediate new business value, it's important that 
 == An in-depth look at the solution's architecture
 
 The Red Hat Build of Camel is an Cloud-native, multi-language and a multi-runtime integration stack.
-Camel-based integration logic can be written in XML or Java, and can behave as a springboot, a quarkus, or a serverless artifact. 
+Camel-based integration logic can be written in XML or Java, and can behave as a Spring Boot, a Quarkus, or a Serverless artifact. 
 
-The present demo will take a legacy API developed in Jboss Fuse 6.2 on Karaf, in Blueprint XML.
+The present demo will take a legacy API developed in JBoss Fuse 6.2 on Karaf, in Blueprint XML.
 It's suggested that such an application targets the Quarkus runtime.
-The provided Quarkus template is 100% compatible with CamelK, so the resutling migrated application is immediately ready to be added to a serverless stack.
+The provided Quarkus template is 100% compatible with Camel K, so the resutling migrated application is immediately ready to be added to a serverless stack.
 
 The material can be used to migrate any Fuse 6 or 7 distribution to the Red Hat Build of Apache Camel.
 The demos will however focus on migrating a Fuse 6 application, and more concretely a Camel v2.17 one, in Blueprint XML format, running on Karaf 2. The XML format will be converted to the optimized IO XML one.
@@ -48,17 +48,19 @@ This path has been chosen for the demonstration because it can be considered the
 
 In general, the following migration strategy should be considered:  
 
-Language  
-* If you have integrations in Java, keep them in Java DSL
-* If you have integrations in XML, migrate to the optimized IO XML
+* *Language*
 
-Runtime  
+** If you have integrations in Java, keep them in Java DSL
+** If you have integrations in XML, migrate to the optimized IO XML
 
-* If you are already on Fuse 7 springboot, migrate toward springboot
-* In any other cases, you could target Quarkus
+* *Runtime*
 
-Target  
-Probably, the target should remain a "standard" container application, ready for Serverless but not mandatorily a Function.
+** If you are already on Fuse 7 springboot, migrate toward springboot
+** In any other cases, you could target Quarkus
+
+* *Target*
+
+Probably, the target should remain a "standard" container application, ready for Serverless but not mandatorily a Function. +
 Thus, the demos will showcase several migrations to "plain" springboot or quarkus applications, and there will be one extra demo to showcase a migration from that result to Camel K.  
 
 
@@ -67,10 +69,13 @@ Thus, the demos will showcase several migrations to "plain" springboot or quarku
 
 A Fuse / Apache Camel based application can be seen as a composition of multiple layers: the Apache Camel layer, the runtime layer (i.e. OSGI) and the platform layer (i.e. Karaf/Fabric8).  
 
-![Standard approach](../assets/images/runtimes-0.png?raw=true)
+.Standard approach
+
+image:runtimes-0.png[] 
 
 Theoretically, the migration would involve changes in all layers.  
 The material here consists in ready to use templates that are already perfectly suitable for the target so that the migration effort will be reduced to a small subset of changes on the Apache Camel layers.  
 The templates are Maven artifacts, preconfigured with all required dependencies, and holding all the needed placeholders to migrate code and configuration in a timely fashion.  
 
-![Templates-based approach](../assets/images/runtimes-1.png?raw=true)
+.Templates-based approach
+image:runtimes-1.png[] 

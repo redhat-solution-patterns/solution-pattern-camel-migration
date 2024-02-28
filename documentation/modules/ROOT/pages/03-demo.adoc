@@ -14,11 +14,11 @@ You can see a migration based on the templates in action here.
 
 * https://drive.google.com/file/d/11CBxNI_2QI77uFeD7Dxqf32uDnAt9cKX/view?usp=drive_link[Migration toward Camel for Springboot and Camel extension for Quarkus^]
 * https://drive.google.com/file/d/1DqTrlydgvJiKTe7y6oxuvY8K-SAve9xc/view?usp=drive_link[Running the migrated application on Openshift^]
-* https://drive.google.com/file/d/11CBxNI_2QI77uFeD7Dxqf32uDnAt9cKX/view?usp=drive_link[Running the migrated application as a Camelk serverless function^]
+* https://drive.google.com/file/d/11CBxNI_2QI77uFeD7Dxqf32uDnAt9cKX/view?usp=drive_link[Running the migrated application as a Camel K serverless function^]
 
 === Overview
 
-The templates are available in the following repository: https://github.com/mthirion/fuse-to-camel3-camelk
+The templates are available in the following repository: https://github.com/mthirion/fuse-to-camel3-camelk[https://github.com/mthirion/fuse-to-camel3-camelk ^]
 
 
 * The repository has a dedicated branch for each target version: currently *Camel 3.18* or *Camel 3.20*
@@ -31,8 +31,8 @@ image:repo-branch.png[width=60%]
 
 So, there is a subdirectory for each of the most used Camel components (REST API, SOAP, JMS...) further divided per runtime (Quarkus and Springboot).  
 
-+
-image:repo-templates.png[width=60%] 
+
+image:repo-templates.png[] 
 
 
 
@@ -85,17 +85,17 @@ Here below, we'll call this namespace 'claimdemo-migration'.
 
  $ oc new-project claimdemo-migration
 
-==== Preparing CamelK (optional)
-If you want to test the migrated application as a serverless component, you'll need an Openshift server with CamelK installed. +
-Install the Red Hat CamelK Operator to your Openshift cluster. 
+==== Preparing Camel K (optional)
+If you want to test the migrated application as a serverless component, you'll need an Openshift server with Camel K installed. +
+Install the Red Hat Camel K Operator to your Openshift cluster. 
 Optionaly you can also deploy the Openshift Serverless (Knative Serving and Knative Eventing) operators. +
-Make sure you also have the kamel CLI on your local machine, and of the same version as the CamelK Operator. +
-For clarity, we'll use a separate namespace for Camelk-related artefacts.  Let's call it camel-migration. +
+Make sure you also have the kamel CLI on your local machine, and of the same version as the Camel K Operator. +
+For clarity, we'll use a separate namespace for Camel K-related artefacts.  Let's call it camel-migration. +
 
  $ oc new-project camel-migration
 
-Custom beans such as custom Camel processors as considered by Camelk as external dependencies. +
-Those dependencies need to be made available to CamelK at deployment/build time.  +
+Custom beans such as custom Camel processors as considered by Camel K as external dependencies. +
+Those dependencies need to be made available to Camel K at deployment/build time.  +
 The best way to do that is to use an external Maven repository, such as Nexus. +
 It can be deployed on or outside of Openshift but needs to be reachable from it.
 
@@ -214,11 +214,11 @@ To run it and test it on Openshift:
  $ cd -
 
 
-==== Turning the migrated application into a CamelK serverless function
+==== Turning the migrated application into a CamCamel KelK serverless function
 The template makes use of the new IO XML format, which makes the migrated application immediately compatible with Camel K. +
 
-As mentioned, with CamelK, the Java dependencies (custom Camel processor) need to be made externaly available, for example thanks to a Nexus repository +
-To do that, you can use the helpers found in the camelk template directory, which will be refered to as $CAMELK +
+As mentioned, with Camel K, the Java dependencies (custom Camel processor) need to be made externaly available, for example thanks to a Nexus repository +
+To do that, you can use the helpers found in the Camel K template directory, which will be refered to as $CAMELK +
 
  $ CAMELK=./templates/camelk
 
@@ -227,7 +227,7 @@ There are 3 elements to modify in the helper: +
 [upperalpha]
 . *Import of the Java library* + 
 +
-Copy the org.blogdemo.claimdemo.ClaimProcessor java class to the camelk "javadependency" directory.
+Copy the org.blogdemo.claimdemo.ClaimProcessor java class to the Camel K "javadependency" directory.
 
  $ mkdir -p $CAMELK/javadependency/src
  $ mkdir -p $CAMELK/javadependency/src/main
@@ -282,7 +282,7 @@ Edit the CamelBeans.java file in the following way:
     }
 
 +
-You are ready to deploy the application as a CamelK Integration +
+You are ready to deploy the application as a Camel K Integration +
 Simply run:
 
  $ oc project camel-migration
@@ -295,5 +295,5 @@ Simply run:
    $TARGET/src/main/resources/camel/MyQuarkusRoute.xml $CAMELK/BeansBinding.java
 
 NOTE: Entry configuration prefixes such as "%prod.", "%dev." etc might be misinterpreted by Camel K and lead to a deployment error. +
-Feel free to comment out those lines, that are not required by the CamelK framework.
+Feel free to comment out those lines, that are not required by the Camel K framework.
 
