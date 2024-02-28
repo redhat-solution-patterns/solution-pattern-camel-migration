@@ -5,7 +5,7 @@
 
 = Architecture 
 
-The solution pattern leverages preconfigured, ready-to-use Quarkus and Springboot templates.
+The solution pattern leverages preconfigured, ready-to-use Quarkus and Spring Boot templates.
 Those templates contains placeholders where code and configration just need to be copy-pasted from the legacy application.
 
 
@@ -55,13 +55,13 @@ In general, the following migration strategy should be considered:
 
 * *Runtime*
 
-** If you are already on Fuse 7 springboot, migrate toward springboot
+** If you are already on Fuse 7 Spring Boot, migrate toward Spring Boot
 ** In any other cases, you could target Quarkus
 
 * *Target*
 
 Probably, the target should remain a "standard" container application, ready for Serverless but not mandatorily a Function. +
-Thus, the demos will showcase several migrations to "plain" springboot or quarkus applications, and there will be one extra demo to showcase a migration from that result to Camel K.  
+Thus, the demos will showcase several migrations to "plain" Spring Boot or quarkus applications, and there will be one extra demo to showcase a migration from that result to Camel K.  
 
 
 [#more_tech]

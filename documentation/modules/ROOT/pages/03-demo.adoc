@@ -12,7 +12,7 @@
 
 You can see a migration based on the templates in action here.
 
-* https://drive.google.com/file/d/11CBxNI_2QI77uFeD7Dxqf32uDnAt9cKX/view?usp=drive_link[Migration toward Camel for Springboot and Camel extension for Quarkus^]
+* https://drive.google.com/file/d/11CBxNI_2QI77uFeD7Dxqf32uDnAt9cKX/view?usp=drive_link[Migration toward Camel for Spring Boot and Camel extension for Quarkus^]
 * https://drive.google.com/file/d/1DqTrlydgvJiKTe7y6oxuvY8K-SAve9xc/view?usp=drive_link[Running the migrated application on Openshift^]
 * https://drive.google.com/file/d/11CBxNI_2QI77uFeD7Dxqf32uDnAt9cKX/view?usp=drive_link[Running the migrated application as a Camel K serverless function^]
 
@@ -29,7 +29,7 @@ image:repo-branch.png[width=60%]
 * The "templates" directory itself contains multiple subdirectories. +
 * The breakdown is done on a per-component and per-runtime basis. +
 
-So, there is a subdirectory for each of the most used Camel components (REST API, SOAP, JMS...) further divided per runtime (Quarkus and Springboot).  
+So, there is a subdirectory for each of the most used Camel components (REST API, SOAP, JMS...) further divided per runtime (Quarkus and Spring Boot).  
 
 
 image:repo-templates.png[] 

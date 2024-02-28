@@ -23,7 +23,7 @@ Contributors: _Michael Thirion (Red Hat)_
 Common use cases that can be address with this solution are:
 
 - Migrate Fuse 6.x (Blueprint XML, Spring XML or Java) applications to the Red Hat Build of Camel, targeting either Springoot 3, Quarkus or the Camel K Serverless runtime.
-- Migrate Fuse 7 (Karaf or Springboot) applications to the Red Hat Build of Camel, targeting either Springboot 3, Quarkus or the Camel K Serverless runtime.
+- Migrate Fuse 7 (Karaf or Spring Boot) applications to the Red Hat Build of Camel, targeting either Spring Boot 3, Quarkus or the Camel K Serverless runtime.
 - Start writing Camel 3.x or 4.x applications right away with no effort
 
 
