@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Solution Pattern: Migrating from Red Hat Fuse to Red build of Apache Camel :: Solution Patterns for Cloud Native Architectures</title>
+    <link rel="canonical" href="https://redhat-solution-patterns.github.io/solution-patterns/solution-pattern-camel-migration/03-demo.html">
+    <link rel="prev" href="02-architecture.html">
+    <link rel="next" href="dev-resources.html">
+    <meta name="generator" content="Antora 3.0.0">
+    <link rel="stylesheet" href="../_/css/site.css">
+<link rel="icon" href="../_/img/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://redhat.com" target="_blank"><img
+          src="../_/img/logo.png" height="40px" alt="Cloud Native Architecture Solution Patterns"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="https://redhat-solution-patterns.github.io/solution-patterns">Solution Patterns for Cloud Native Architectures</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+       
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Solution Patterns</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Adopt Change Data Capture for <br/>stack modernization</a>
+            <a class="navbar-item" href="#">Edge-to-Cloud Pipelines</a>     <a class="navbar-item" href="#">Event driven architecture</a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Other</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://redhat-gitops-patterns.io/">GitOps Solution Patterns</a>
+            <a class="navbar-item" href="https://hybrid-cloud-patterns.io/">Hybrid Cloud Solution Patterns</a>
+          </div>
+        </div>
+
+        <a class="navbar-item" target="_blank" href="https://www.redhat.com/en/products/middleware">Red Hat Application Services</a>
+
+        <a class="navbar-item" target="_blank" href="https://developers.redhat.com/middleware">Learn more</a>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="solution-pattern-camel-migration" data-version="master">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html" class=" query-params-link">Migrating from Red Hat Fuse to Red build of Apache Camel</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="index.html">1. Home page</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="index.html#use-cases">1.1 Use cases</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="index.html#_the_story_behind_this_solution_pattern">1.2 The story behind this solution pattern</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#index-pattern.adoc#_the_solution">1.3 The solution</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="02-architecture.html">2. Architecture</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="02-architecture.html#tech_stack">2.1. Technology stack</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="02-architecture.html#in_depth">2.2. An in-depth look at the solution&#8217;s </a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="03-demo.html">3. See the Solution in Action</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#_demonstration">3.1. Demonstration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_run_the_demonstration">3.2. Run this demonstration</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="#_before_getting_started">3.3. Pre-requisites</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="#_installing_the_demo">3.4. Setup</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="#_walkthrough_guide">3.5. Walkthrough guide</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="dev-resources.html">Developer Resources</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Migrating from Red Hat Fuse to Red build of Apache Camel</span>
+    <span class="version">master</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Migrating from Red Hat Fuse to Red build of Apache Camel</span>
+      <ul class="versions">
+        <li class="version is-current">
+          <a href="index.html">master</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Migrating from Red Hat Fuse to Red build of Apache Camel</a></li>
+    <li><a href="03-demo.html">3. See the Solution in Action</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/mthirion/solution-pattern-camel-migration/edit/main/documentation/modules/ROOT/pages/03-demo.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Solution Pattern: Migrating from Red Hat Fuse to Red build of Apache Camel</h1>
+<h1 id="_see_the_solution_in_action" class="sect0"><a class="anchor" href="#_see_the_solution_in_action"></a><a class="link" href="#_see_the_solution_in_action">See the Solution in Action</a></h1>
+<div class="sect1">
+<h2 id="_demonstration"><a class="anchor" href="#_demonstration"></a><a class="link" href="#_demonstration">1. Demonstration</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="demo-video"><a class="anchor" href="#demo-video"></a><a class="link" href="#demo-video">1.1. Watch a demonstration</a></h3>
+<div class="paragraph">
+<p>You can see a migration based on the templates in action here.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://drive.google.com/file/d/11CBxNI_2QI77uFeD7Dxqf32uDnAt9cKX/view?usp=drive_link" target="_blank" rel="noopener">Migration toward Camel for Springboot and Camel extension for Quarkus</a></p>
+</li>
+<li>
+<p><a href="https://drive.google.com/file/d/1DqTrlydgvJiKTe7y6oxuvY8K-SAve9xc/view?usp=drive_link" target="_blank" rel="noopener">Running the migrated application on Openshift</a></p>
+</li>
+<li>
+<p><a href="https://drive.google.com/file/d/11CBxNI_2QI77uFeD7Dxqf32uDnAt9cKX/view?usp=drive_link" target="_blank" rel="noopener">Running the migrated application as a Camel K serverless function</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_overview"><a class="anchor" href="#_overview"></a><a class="link" href="#_overview">1.2. Overview</a></h3>
+<div class="paragraph">
+<p>The templates are available in the following repository: <a href="https://github.com/mthirion/fuse-to-camel3-camelk" target="_blank" rel="noopener">https://github.com/mthirion/fuse-to-camel3-camelk </a></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The repository has a dedicated branch for each target version: currently <strong>Camel 3.18</strong> or <strong>Camel 3.20</strong></p>
+<div class="paragraph">
+<p><span class="image"><img src="_images/repo-branch.png" alt="repo branch" width="60%"></span></p>
+</div>
+</li>
+<li>
+<p>In each branch, the templates can be found in the "/templates" sub-directory.<br></p>
+</li>
+<li>
+<p>The "templates" directory itself contains multiple subdirectories.<br></p>
+</li>
+<li>
+<p>The breakdown is done on a per-component and per-runtime basis.<br></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>So, there is a subdirectory for each of the most used Camel components (REST API, SOAP, JMS&#8230;&#8203;) further divided per runtime (Quarkus and Springboot).</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/repo-templates.png" alt="repo templates"></span></p>
+</div>
+<div class="paragraph">
+<p>Next, you can learn how to walkthrough this demo.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_run_the_demonstration"><a class="anchor" href="#_run_the_demonstration"></a><a class="link" href="#_run_the_demonstration">2. Run the demonstration</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_before_getting_started"><a class="anchor" href="#_before_getting_started"></a><a class="link" href="#_before_getting_started">2.1. Before getting started</a></h3>
+<div class="paragraph">
+<p>To try out, you&#8217;ll need Maven, and it&#8217;s best to have a Java 17 runtime.<br>
+Maven needs to have access to the repository "https://maven.repository.redhat.com/ga/" for the dependencies.<br>
+To make things easier, it&#8217;s better to use a visual Java IDE, such as Eclipse, Vscode&#8230;&#8203;</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_setup"><a class="anchor" href="#_setup"></a><a class="link" href="#_setup">2.2. Setup</a></h3>
+<div class="paragraph">
+<p>First, clone the repository: <br></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ git clone https://github.com/mthirion/fuse-to-camel3-camelk</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Enter the repository and switch, for example, to the 3.18 branch.<br></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ cd fuse-to-camel3-camelk
+$ git checkout 3.18</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_getting_the_source_application"><a class="anchor" href="#_getting_the_source_application"></a><a class="link" href="#_getting_the_source_application">2.2.1. Getting the source application</a></h4>
+<div class="paragraph">
+<p>The demoed example is a migration of a CXF-based REST API implemented using FUSE 6<br>
+The source code of that legacy application in the /fuse6-apps directory, under /rest/claimdemo<br>
+In the rest of the document, this location will be refered to as $SOURCE<br></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ SOURCE=./fuse6-apps/rest/claimdemo</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You&#8217;ll need a Fuse 6 Fabric to deploy that application.<br>
+You can run one locally as follows:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ docker pull weimeilin/fusefabric:naenablement
+$ docker run -it -p 8181:8181 -p 8182:8182 -p 8184:8184 weimeilin/fusefabric:naenablement</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This application listens to API calls at <a href="http://localhost:8182/cxf/status/status/custId/123" class="bare">http://localhost:8182/cxf/status/status/custId/123</a><br></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_identifying_the_target_for_the_migration"><a class="anchor" href="#_identifying_the_target_for_the_migration"></a><a class="link" href="#_identifying_the_target_for_the_migration">2.2.2. Identifying the target for the migration</a></h4>
+<div class="paragraph">
+<p>The present document will describe how to migrate the application to the Camel Extension for Quarkus runtime. <br>
+We&#8217;ll therefore start with the template located in the templates/rest/ceq-xml-rest-app directory.<br>
+For the rest of the document, this location will be refered to as $TARGET<br></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ TARGET=./templates/rest/ceq-xml-rest-app</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_preparing_the_openshift_cluster"><a class="anchor" href="#_preparing_the_openshift_cluster"></a><a class="link" href="#_preparing_the_openshift_cluster">2.2.3. Preparing the Openshift cluster</a></h4>
+<div class="paragraph">
+<p>For th deployment to Openshift, you&#8217;ll just need access to a namespace on an Openshift cluster.<br>
+Here below, we&#8217;ll call this namespace 'claimdemo-migration'.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ oc new-project claimdemo-migration</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_preparing_camel_k_optional"><a class="anchor" href="#_preparing_camel_k_optional"></a><a class="link" href="#_preparing_camel_k_optional">2.2.4. Preparing Camel K (optional)</a></h4>
+<div class="paragraph">
+<p>If you want to test the migrated application as a serverless component, you&#8217;ll need an Openshift server with Camel K installed.<br>
+Install the Red Hat Camel K Operator to your Openshift cluster.
+Optionaly you can also deploy the Openshift Serverless (Knative Serving and Knative Eventing) operators.<br>
+Make sure you also have the kamel CLI on your local machine, and of the same version as the Camel K Operator.<br>
+For clarity, we&#8217;ll use a separate namespace for Camel K-related artefacts.  Let&#8217;s call it camel-migration.<br></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ oc new-project camel-migration</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Custom beans such as custom Camel processors as considered by Camel K as external dependencies.<br>
+Those dependencies need to be made available to Camel K at deployment/build time. <br>
+The best way to do that is to use an external Maven repository, such as Nexus.<br>
+It can be deployed on or outside of Openshift but needs to be reachable from it.</p>
+</div>
+<div class="paragraph">
+<p>Find the prepared Maven settings file:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ vim ./templates/camelk/script/settings.xml</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Edit it, replacing the URL of th 2 repositories (nexus-camel and nexus-camel-snapshots) by the appropriate URL of your own Nexus server.</p>
+</div>
+<div class="paragraph">
+<p>Create a ConfigMap to hold this settings.xml on Openshift:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ oc create cm camel-k-maven-settings --from-file ./templates/camelk/script/settings.xml -n camel-migration</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then run:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ kamel install --force --maven-settings configmap:camel-k-maven-settings/settings.xml</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_walkthrough_guide"><a class="anchor" href="#_walkthrough_guide"></a><a class="link" href="#_walkthrough_guide">2.3. Walkthrough guide</a></h3>
+<div class="paragraph">
+<p>You&#8217;re ready to perform the migration.<br>
+To complete it, proceed to follow the below steps.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Update Application properties</strong></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Append the properties from <code>$SOURCE/src/main/fabric8/com.redhat.demo.result.properties</code> to the end of <code>$TARGET/src/main/resources/application.properties</code><br></p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><strong>Update Camel route</strong></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Move the Camel <em>&lt;route&gt;</em> section from <code>$SOURCE/src/main/resources/OSGI-INF/blueprint/blueprint.xml</code> to <code>$TARGET/src/main/resources/camel/MyQuarkusRoute.xml</code><br></p>
+</li>
+<li>
+<p>Replace the existing empty <em>&lt;route&gt;</em> section of the target file, and pay attention to only copy the <em>&lt;route&gt;</em> section and not the <em>&lt;CamelContext&gt;</em> nor anything else.<br></p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><strong>Changes to Java and the Camel processors</strong></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Copy the java packages from <code>$SOURCE/src/main/java`</code> to <code>$TARGET/src/main/java</code><br></p>
+<div class="literalblock">
+<div class="content">
+<pre>$ cp -r $SOURCE/src/main/java $TARGET/src/main/</pre>
+</div>
+</div>
+</li>
+<li>
+<p>You can optionaly remove the Service interface, which is a class used specifically by the CXFRS framework, which is no longer the framework supporting REST API in Camel 3.</p>
+<div class="literalblock">
+<div class="content">
+<pre>$ rm $TARGET/src/main/java/org/blogdemo/claimdemo/StatusService.java</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Add @Named and @ApplicationScoped annotations to the Java classes that are used by Camel as custom beans or custom processors.</p>
+</li>
+<li>
+<p>In our example, there is one custom processor in the Camel route.<br>
+It&#8217;s referenced by name as "claimProcessor", and correspond to the class org.blogdemo.claimdemo.ClaimProcessor.java.<br>
+Therefore, add the below annotation to that Java class:</p>
+<div class="literalblock">
+<div class="content">
+<pre>import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Named;</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>@Named("claimProcessor")
+@ApplicationScoped
+public class ClaimProcessor {...</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><strong>Camel REST DSL changes</strong></p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The Camel CXFRS component has been removed from Camel 3. Camel 3 now relies on the Camel REST component for the implementation of REST API endpoints. This provides separation of concerns between th REST interface and the REST implementation. It&#8217;s recommended to generate the REST interface from an OpenAPI specification.<br>
+Camel ships a Maven plugin to automate th creation of the required code from the openAPI document.<br></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Copy the OpenAPI spec to the Maven project and run the Maven plugin.<br>
+$ mkdir -p $TARGET/src/spec
+$ cp ./fuse6-apps/rest/openapi.yaml $TARGET/src/spec</p>
+<div class="literalblock">
+<div class="content">
+<pre>$ cd $TARGET
+$ mvn camel-restdsl-openapi:generate-xml
+$ cd -</pre>
+</div>
+</div>
+</li>
+<li>
+<p>The XML code will be generated in the target/generated-rest-sources/restdsl-openapi/ folder, and needs to be copied in the "resources" folder.
+$ cp -f $TARGET/target/generated-rest-sources/restdsl-openapi/camel-rest.xml $TARGET/src/main/resources/camel-rest/rests.xml</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><strong>Switch from CXFRS to Camel REST</strong></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>The final stage is to adjust the &lt;from&gt; entry of the Camel route, replacing the 'cxfrs://' prefix with one that links the Camel route to the generated, separate Camel REST interface, which is actually done via the operationID (found in the openAPI specification document).<br></p>
+<div class="literalblock">
+<div class="content">
+<pre># $TARGET/src/main/resources/camel/MyQuarkusRoute.xml</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&lt;from id="_from4" uri="cxfrs:bean:statusEndpoint"/&gt;
+&gt;&gt;
+&lt;from id="_from4" uri="direct://getCustById"/&gt;</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><strong>Final consideration upon CXFRS</strong></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>The CXFRS library, based on the CXF framework initially designed for SOAP, made use of the saop-related "operationName" header to identify the target Java method to call.<br>
+This is not needed anymore, as the implementation now relies on the Camel REST library.<br></p>
+</li>
+<li>
+<p>To makes the application forward compatible to new clients, it&#8217;s best to get rid of that header constraints.<br>
+An easy (quick &amp; dirty) way to do that is by replacing the condition in the camel route as follows:</p>
+<div class="literalblock">
+<div class="content">
+<pre>&lt;simple&gt;${header.operationName} == "status"&lt;/simple&gt;
+&gt;&gt;
+&lt;simple&gt; "status" == "status"&lt;/simple&gt;</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p></p>
+</div>
+<div class="paragraph">
+<p>That&#8217;s it !<br>
+The application has already been migrated and is now a Camel 3 Quarkus application.<br>
+You can run it locally for validation with:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ cd $TARGET
+$ mvn clean package
+$ mvn quarkus:dev</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ curl http://localhost:8182/cxf/status/custId/789</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ cd -</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_running_it_on_openshift"><a class="anchor" href="#_running_it_on_openshift"></a><a class="link" href="#_running_it_on_openshift">2.3.1. Running it on Openshift</a></h4>
+<div class="paragraph">
+<p>Thanks to the templates, the migrated application is already fully compatible with Openshift and can safely run immediately in containers.<br>
+To run it and test it on Openshift:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ oc project claimdemo-migration
+$ cd $TARGET
+$ mvn clean package -Popenshift -Dquarkus.kubernetes.deploy=true -Dquarkus.kubernetes-client.trust-certs=true -Dquarkus.openshift.route.expose=true</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ ROUTE=`oc get route ceq-xml-rest-app --no-headers=true -n claimdemo-migration | awk '{print $2}'`
+$ curl http://$ROUTE/cxf/status/custId/789</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ cd -</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_turning_the_migrated_application_into_a_camcamel_kelk_serverless_function"><a class="anchor" href="#_turning_the_migrated_application_into_a_camcamel_kelk_serverless_function"></a><a class="link" href="#_turning_the_migrated_application_into_a_camcamel_kelk_serverless_function">2.3.2. Turning the migrated application into a CamCamel KelK serverless function</a></h4>
+<div class="paragraph">
+<p>The template makes use of the new IO XML format, which makes the migrated application immediately compatible with Camel K.<br></p>
+</div>
+<div class="paragraph">
+<p>As mentioned, with Camel K, the Java dependencies (custom Camel processor) need to be made externaly available, for example thanks to a Nexus repository<br>
+To do that, you can use the helpers found in the Camel K template directory, which will be refered to as $CAMELK<br></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ CAMELK=./templates/camelk</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>There are 3 elements to modify in the helper:<br></p>
+</div>
+<div class="olist upperalpha">
+<ol class="upperalpha" type="A">
+<li>
+<p><strong>Import of the Java library</strong><br></p>
+<div class="paragraph">
+<p>Copy the org.blogdemo.claimdemo.ClaimProcessor java class to the Camel K "javadependency" directory.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ mkdir -p $CAMELK/javadependency/src
+$ mkdir -p $CAMELK/javadependency/src/main
+$ mkdir -p $CAMELK/javadependency/src/main/java</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ cp -r $TARGET/src/main/java $CAMELK/javadependency/src/main/java</pre>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Upload the Java library to your Nexus</strong></p>
+<div class="paragraph">
+<p>To do that, you first need to edit the pom.xml and correct the URL of the Nexus repository from the &lt;distributionManagement&gt; section</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre># $CAMELK/pom.xml</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&lt;distributionManagement&gt;
+     &lt;repository&gt;
+         &lt;id&gt;nexus-camel&lt;/id&gt;
+         &lt;url&gt;URL OF YOUR NEXUS REPOSITORY&lt;/url&gt;
+     &lt;/repository&gt;
+&lt;/distributionManagement&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You&#8217;ll have to make sure that you have permission to write to the Nexus repository.<br>
+This means you will need to make an authenticated call to the Nexus server.<br>
+Credentials information are located in the settings.xml linked to your local Nexus (not the one we used to create a ConfigMap).<br>
+Your local file sould contain a &lt;server&gt; entry with the exact same "id" as the one listed in the pom.xml<br></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&lt;server&gt;
+  &lt;id&gt;nexus-camel&lt;/id&gt;
+  &lt;username&gt;admin&lt;/username&gt;
+  &lt;password&gt;****&lt;/password&gt;
+&lt;/server&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Once all set, run:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ cd $CAMELK/javadependency
+$ mvn deploy
+$ cd -</pre>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Configure the Camel K beans registry</strong></p>
+<div class="paragraph">
+<p>The Camel processor bean must be referenced in the Camel registry.
+Edit the CamelBeans.java file in the following way:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre># $CAMELK/BeansBinding.java</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>import org.blogdemo.claimdemo.*;</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>@BindToRegistry("claimProcessor")
+public static ClaimProcessor camelbean() {
+       return new ClaimProcessor();
+   }</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You are ready to deploy the application as a Camel K Integration<br>
+Simply run:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ oc project camel-migration
+$ kamel run --name camelk-migration \
+   -d mvn:com.redhat.appfoundation.camelk.dependency:java-dependency:1.0.0 \
+   -d camel-jackson -d camel-servlet \
+   --open-api file:$TARGET/src/spec/openapi.yaml \
+   --config file:$TARGET/src/main/resources/application.properties \
+   --build-property file:$TARGET/src/main/resources/application.properties \
+  $TARGET/src/main/resources/camel/MyQuarkusRoute.xml $CAMELK/BeansBinding.java</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Entry configuration prefixes such as "%prod.", "%dev." etc might be misinterpreted by Camel K and lead to a deployment error.<br>
+Feel free to comment out those lines, that are not required by the Camel K framework.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="02-architecture.html" class="query-params-link">2. Architecture</a></span>
+  <span class="next"><a href="dev-resources.html" class="query-params-link">Developer Resources</a></span>
+</nav>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img
+          src="../_/img/app-services-logo.png" height="40px" alt="Cloud Native Architecture Solution Patterns"  href="https://redhat.com" ></a>
+</footer><script src="../_/js/vendor/clipboard.js"></script>
+<script src="../_/js/site.js"></script>
+<script async src="../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

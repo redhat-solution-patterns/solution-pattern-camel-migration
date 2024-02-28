@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Solution Patterns: Fuse to Apache Camel migration :: Solution Patterns for Cloud Native Architectures</title>
+    <link rel="canonical" href="https://redhat-solution-patterns.github.io/solution-patterns/solution-pattern-camel-migration/index.html">
+    <link rel="next" href="#index-pattern.adoc#_the_solution">
+    <meta name="generator" content="Antora 3.0.0">
+    <link rel="stylesheet" href="../_/css/site.css">
+<link rel="icon" href="../_/img/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://redhat.com" target="_blank"><img
+          src="../_/img/logo.png" height="40px" alt="Cloud Native Architecture Solution Patterns"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="https://redhat-solution-patterns.github.io/solution-patterns">Solution Patterns for Cloud Native Architectures</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+       
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Solution Patterns</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Adopt Change Data Capture for <br/>stack modernization</a>
+            <a class="navbar-item" href="#">Edge-to-Cloud Pipelines</a>     <a class="navbar-item" href="#">Event driven architecture</a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Other</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://redhat-gitops-patterns.io/">GitOps Solution Patterns</a>
+            <a class="navbar-item" href="https://hybrid-cloud-patterns.io/">Hybrid Cloud Solution Patterns</a>
+          </div>
+        </div>
+
+        <a class="navbar-item" target="_blank" href="https://www.redhat.com/en/products/middleware">Red Hat Application Services</a>
+
+        <a class="navbar-item" target="_blank" href="https://developers.redhat.com/middleware">Learn more</a>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="solution-pattern-camel-migration" data-version="master">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html" class=" query-params-link">Migrating from Red Hat Fuse to Red build of Apache Camel</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="index.html">1. Home page</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#use-cases">1.1 Use cases</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#_the_story_behind_this_solution_pattern">1.2 The story behind this solution pattern</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#index-pattern.adoc#_the_solution">1.3 The solution</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="02-architecture.html">2. Architecture</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="02-architecture.html#tech_stack">2.1. Technology stack</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="02-architecture.html#in_depth">2.2. An in-depth look at the solution&#8217;s </a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="03-demo.html">3. See the Solution in Action</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="03-demo.html#_demonstration">3.1. Demonstration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="03-demo.html#_run_the_demonstration">3.2. Run this demonstration</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="03-demo.html#_before_getting_started">3.3. Pre-requisites</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="03-demo.html#_installing_the_demo">3.4. Setup</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="03-demo.html#_walkthrough_guide">3.5. Walkthrough guide</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="dev-resources.html">Developer Resources</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Migrating from Red Hat Fuse to Red build of Apache Camel</span>
+    <span class="version">master</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Migrating from Red Hat Fuse to Red build of Apache Camel</span>
+      <ul class="versions">
+        <li class="version is-current">
+          <a href="index.html">master</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="index.html" class="home-link is-current"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Migrating from Red Hat Fuse to Red build of Apache Camel</a></li>
+    <li><a href="index.html">1. Home page</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/mthirion/solution-pattern-camel-migration/edit/main/documentation/modules/ROOT/pages/index.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Solution Patterns: Fuse to Apache Camel migration</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Application Development is evolving as the modern Hybrid Cloud and cloud-native architectures drive new demands on applications.  As a part of this continual evolution, we are evolving our product offering from Red Hat Fuse to the Red Hat build of Apache Camel, allowing us to address a broader set of customer deployment use cases.</p>
+</div>
+<div class="paragraph">
+<p>As  Red Hat Fuse approaches product End of Life (EOL) on June 30, 2024,  Apache Camel is the natural go-forward solution for integrations built around Red Hat Fuse which is based on an older version of Apache Camel. Fuse will remain in the <a href="https://access.redhat.com/support/policy/updates/jboss_notes#phases" target="_blank" rel="noopener">maintenance life cycle</a> until its EOL.</p>
+</div>
+<div class="paragraph">
+<p>The <a href="https://developers.redhat.com/products/redhat-build-of-apache-camel/overview" target="_blank" rel="noopener">Red Hat build of Apache Camel</a> is the evolution for Red Hat Fuse, and  is a powerful, versatile framework for application integration. It also includes running Camel on Quarkus and Spring Boot runtimes in both on-premise and cloud environments, including the Camel K operator which is as great starting point for Camel deployments on OpenShift.</p>
+</div>
+<div class="paragraph">
+<p>Performing such a migration can be scary as the effort is not just limited to migrating the high level Camel routes. Indeed, many other underlying technical components (JDK version, Runtime type, XML format etc.) are involved in the migration.</p>
+</div>
+<div class="paragraph">
+<p>With this solution pattern you will find a guided way to perform <strong>Apache Camel v2 to Camel v3 or v4 migrations</strong> in a faster way. This solution pattern proposes an accelerated path to performing such a migration by abstracting all those technical details, leaving it to the migration of the high level integration logic .</p>
+</div>
+<div class="paragraph">
+<p>Contributors: <em>Michael Thirion (Red Hat)</em></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="use-cases"><a class="anchor" href="#use-cases"></a><a class="link" href="#use-cases">1. Use cases</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Common use cases that can be address with this solution are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Migrate Fuse 6.x (Blueprint XML, Spring XML or Java) applications to the Red Hat Build of Camel, targeting either Springoot 3, Quarkus or the Camel K Serverless runtime.</p>
+</li>
+<li>
+<p>Migrate Fuse 7 (Karaf or Springboot) applications to the Red Hat Build of Camel, targeting either Springboot 3, Quarkus or the Camel K Serverless runtime.</p>
+</li>
+<li>
+<p>Start writing Camel 3.x or 4.x applications right away with no effort</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_the_solution"><a class="anchor" href="#_the_solution"></a><a class="link" href="#_the_solution">2. The Solution</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This solution aims to provided an accelerated path to migrating applications from Camel 2 to Camel 3 or Camel 4. More concretely, the material should help people migrating any kind of Fuse 6 or Fuse 7 applications to the latest Red Hat Build of Apache Camel.</p>
+</div>
+<div class="paragraph">
+<p>The Solution Pattern offers a number of <strong>Camel migration templates</strong> which can be leveraged to reduce the migration effort to its bare minimum.</p>
+</div>
+<div class="paragraph">
+<p>The demos however focuses on migrating a Fuse 6 application, and more concretely a Camel v2.17 one, in Blueprint XML format, running on Karaf 2. The XML format will be converted to the optimized IO XML one.</p>
+</div>
+<div class="paragraph">
+<p>This particular usecase has been chosen for the demonstration because it can be considered as potentially the hardest one. Applications running on Fuse 7, no matter which distribution, could use the same approach and will bnefit from a shortest migration effort.</p>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="next"><a href="#index-pattern.adoc#_the_solution" class="query-params-link">1.3 The solution</a></span>
+</nav>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img
+          src="../_/img/app-services-logo.png" height="40px" alt="Cloud Native Architecture Solution Patterns"  href="https://redhat.com" ></a>
+</footer><script src="../_/js/vendor/clipboard.js"></script>
+<script src="../_/js/site.js"></script>
+<script async src="../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
