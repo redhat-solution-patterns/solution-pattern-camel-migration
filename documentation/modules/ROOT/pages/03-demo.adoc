@@ -12,9 +12,12 @@
 
 You can see a migration based on the templates in action here.
 
-* https://drive.google.com/file/d/11CBxNI_2QI77uFeD7Dxqf32uDnAt9cKX/view?usp=drive_link[Migration toward Camel for Spring Boot and Camel extension for Quarkus^]
-* https://drive.google.com/file/d/1DqTrlydgvJiKTe7y6oxuvY8K-SAve9xc/view?usp=drive_link[Running the migrated application on Openshift^]
-* https://drive.google.com/file/d/11CBxNI_2QI77uFeD7Dxqf32uDnAt9cKX/view?usp=drive_link[Running the migrated application as a Camel K serverless function^]
+video::8NDm6XbEiJE[youtube, width=800, height=480, start=832]
+
+//* https://drive.google.com/file/d/11CBxNI_2QI77uFeD7Dxqf32uDnAt9cKX/view?usp=drive_link[Migration toward Camel for Spring Boot and Camel extension for Quarkus^]
+//* https://drive.google.com/file/d/1DqTrlydgvJiKTe7y6oxuvY8K-SAve9xc/view?usp=drive_link[Running the migrated application on Openshift^]
+//* https://drive.google.com/file/d/11CBxNI_2QI77uFeD7Dxqf32uDnAt9cKX/view?usp=drive_link[Running the migrated application as a Camel K serverless function^]
+
 
 === Overview
 
