@@ -47,11 +47,13 @@ The demos will however focus on migrating a Fuse 6 application, and more concret
 This path has been chosen for the demonstration because it can be considered the hardest one. Applications running on Fuse 7, no matter which distribution, could use the same approach and will bnefit from a shortest migration effort.
 
 In general, the following migration strategy should be considered:  
+
 Language  
 * If you have integrations in Java, keep them in Java DSL
 * If you have integrations in XML, migrate to the optimized IO XML
 
 Runtime  
+
 * If you are already on Fuse 7 springboot, migrate toward springboot
 * In any other cases, you could target Quarkus
 
@@ -59,20 +61,16 @@ Target
 Probably, the target should remain a "standard" container application, ready for Serverless but not mandatorily a Function.
 Thus, the demos will showcase several migrations to "plain" springboot or quarkus applications, and there will be one extra demo to showcase a migration from that result to Camel K.  
 
-=== How can the solution pattern help ?
+
+[#more_tech]
+== How can the solution pattern help ?  
+
 A Fuse / Apache Camel based application can be seen as a composition of multiple layers: the Apache Camel layer, the runtime layer (i.e. OSGI) and the platform layer (i.e. Karaf/Fabric8).  
 
-image::../assets/images/runtime-0.png[Standard approach]
+![Standard approach](../assets/images/runtimes-0.png?raw=true)
 
 Theoretically, the migration would involve changes in all layers.  
 The material here consists in ready to use templates that are already perfectly suitable for the target so that the migration effort will be reduced to a small subset of changes on the Apache Camel layers.  
 The templates are Maven artifacts, preconfigured with all required dependencies, and holding all the needed placeholders to migrate code and configuration in a timely fashion.  
 
-image::../assets/images/runtime-1.png[Templates-based approach]
-
-//// 
-[#more_tech]
-== About the Technology Stack
-
-If you want to include more details about the tech stack you used, this is the place.
- ////
+![Templates-based approach](../assets/images/runtimes-1.png?raw=true)
