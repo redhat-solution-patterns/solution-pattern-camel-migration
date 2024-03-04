@@ -158,16 +158,16 @@
 <p>Application Development is evolving as the modern Hybrid Cloud and cloud-native architectures drive new demands on applications.  As a part of this continual evolution, we are evolving our product offering from Red Hat Fuse to the Red Hat build of Apache Camel, allowing us to address a broader set of customer deployment use cases.</p>
 </div>
 <div class="paragraph">
-<p>As  Red Hat Fuse approaches product End of Life (EOL) on June 30, 2024,  Apache Camel is the natural go-forward solution for integrations built around Red Hat Fuse which is based on an older version of Apache Camel. Fuse will remain in the <a href="https://access.redhat.com/support/policy/updates/jboss_notes#phases" target="_blank" rel="noopener">maintenance life cycle</a> until its EOL.</p>
+<p>As  Red Hat Fuse approaches product End of Life (EOL) on June 30, 2024,  Red Hat build of Apache Camel is the natural go-forward solution for integrations built around Red Hat Fuse which is based on an older version of Apache Camel. Fuse will remain in the <a href="https://access.redhat.com/support/policy/updates/jboss_notes#phases" target="_blank" rel="noopener">maintenance life cycle</a> until its EOL.</p>
 </div>
 <div class="paragraph">
-<p>The <a href="https://developers.redhat.com/products/redhat-build-of-apache-camel/overview" target="_blank" rel="noopener">Red Hat build of Apache Camel</a> is the evolution for Red Hat Fuse, and  is a powerful, versatile framework for application integration. It also includes running Camel on Quarkus and Spring Boot runtimes in both on-premise and cloud environments, including the Camel K operator which is as great starting point for Camel deployments on OpenShift.</p>
+<p>The <a href="https://developers.redhat.com/products/redhat-build-of-apache-camel/overview" target="_blank" rel="noopener">Red Hat build of Apache Camel</a> is the evolution for Red Hat Fuse, and  is a powerful, versatile framework for application integration. It also includes running Camel on Quarkus and Spring Boot runtimes in both on-premise and cloud environments, including the Camel K operator which streamlines building, deploying and operating Camel integrations on OpenShift.</p>
 </div>
 <div class="paragraph">
 <p>Performing such a migration can be scary as the effort is not just limited to migrating the high level Camel routes. Indeed, many other underlying technical components (JDK version, Runtime type, XML format etc.) are involved in the migration.</p>
 </div>
 <div class="paragraph">
-<p>With this solution pattern you will find a guided way to perform <strong>Apache Camel v2 to Camel v3 or v4 migrations</strong> in a faster way. This solution pattern proposes an accelerated path to performing such a migration by abstracting all those technical details, leaving it to the migration of the high level integration logic .</p>
+<p>With this solution pattern you will find a guided way to perform <strong>Apache Camel v2 to Camel v3 and v4 migrations</strong> in a faster way. This solution pattern proposes an accelerated path to performing such a migration by abstracting all those technical details, leaving it to the migration of the high level integration logic .</p>
 </div>
 <div class="paragraph">
 <p>Contributors: <em>Michael Thirion (Red Hat)</em></p>
@@ -183,13 +183,13 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Migrate Fuse 6.x (Blueprint XML, Spring XML or Java) applications to the Red Hat Build of Camel, targeting either Springoot 3, Quarkus or the Camel K Serverless runtime.</p>
+<p>Migrate Fuse 6.x (Blueprint XML, Spring XML or Java) applications to the Red Hat build of Apache Camel, targeting either Sprin Boot 3, Quarkus or Camel K.</p>
 </li>
 <li>
-<p>Migrate Fuse 7 (Karaf or Spring Boot) applications to the Red Hat Build of Camel, targeting either Spring Boot 3, Quarkus or the Camel K Serverless runtime.</p>
+<p>Migrate Fuse 7 (Karaf or Spring Boot) applications to the Red Hat build of Apache Camel, targeting either Spring Boot 3, Quarkus or Camel K.</p>
 </li>
 <li>
-<p>Start writing Camel 3.x or 4.x applications right away with no effort</p>
+<p>Start writing Camel 4.x applications right away with no effort</p>
 </li>
 </ul>
 </div>
@@ -199,7 +199,7 @@
 <h2 id="_the_solution"><a class="anchor" href="#_the_solution"></a><a class="link" href="#_the_solution">2. The Solution</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This solution aims to provided an accelerated path to migrating applications from Camel 2 to Camel 3 or Camel 4. More concretely, the material should help people migrating any kind of Fuse 6 or Fuse 7 applications to the latest Red Hat Build of Apache Camel.</p>
+<p>This solution aims to provide an accelerated path to migrating applications from Camel 2 to Camel 3 and Camel 4. More concretely, the material should help people migrating any kind of Fuse 6 or Fuse 7 applications to the latest Red Hat build of Apache Camel.</p>
 </div>
 <div class="paragraph">
 <p>The Solution Pattern offers a number of <strong>Camel migration templates</strong> which can be leveraged to reduce the migration effort to its bare minimum.</p>
@@ -208,7 +208,7 @@
 <p>The demos however focuses on migrating a Fuse 6 application, and more concretely a Camel v2.17 one, in Blueprint XML format, running on Karaf 2. The XML format will be converted to the optimized IO XML one.</p>
 </div>
 <div class="paragraph">
-<p>This particular usecase has been chosen for the demonstration because it can be considered as potentially the hardest one. Applications running on Fuse 7, no matter which distribution, could use the same approach and will bnefit from a shortest migration effort.</p>
+<p>This particular usecase has been chosen for the demonstration because it can be considered as potentially the hardest one. Applications running on Fuse 7, no matter which distribution, could use the same approach and will benefit from a shortest migration effort.</p>
 </div>
 </div>
 </div>
