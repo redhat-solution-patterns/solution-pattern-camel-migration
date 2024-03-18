@@ -171,12 +171,12 @@
 <div class="sect2">
 <h3 id="_overview"><a class="anchor" href="#_overview"></a><a class="link" href="#_overview">1.2. Overview</a></h3>
 <div class="paragraph">
-<p>The templates are available in the following repository: <a href="https://github.com/mthirion/fuse-to-camel3-camelk" target="_blank" rel="noopener">https://github.com/mthirion/fuse-to-camel3-camelk </a></p>
+<p>The templates are available in the following repository: <a href="https://github.com/mthirion/fuse-to-camel3-camelk" target="_blank" rel="noopener">https://github.com/mthirion/fuse-to-camel3-camelk/tree/4.0 </a></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The repository has a dedicated branch for each target version: currently <strong>Camel 3.18</strong> or <strong>Camel 3.20</strong></p>
+<p>The repository has a branch specific to the current Red Hat Build of Apache Camel 4.</p>
 <div class="paragraph">
 <p><span class="image"><img src="_images/repo-branch.png" alt="repo branch" width="60%"></span></p>
 </div>
@@ -226,12 +226,12 @@ To make things easier, it&#8217;s better to use a visual Java IDE, such as Eclip
 </div>
 </div>
 <div class="paragraph">
-<p>Enter the repository and switch, for example, to the 3.18 branch.<br></p>
+<p>Enter the repository and switch to the 4.0 branch.<br></p>
 </div>
 <div class="literalblock">
 <div class="content">
 <pre>$ cd fuse-to-camel3-camelk
-$ git checkout 3.18</pre>
+$ git checkout 4.0</pre>
 </div>
 </div>
 <div class="sect3">
@@ -394,8 +394,8 @@ It&#8217;s referenced by name as "claimProcessor", and correspond to the class o
 Therefore, add the below annotation to that Java class:</p>
 <div class="literalblock">
 <div class="content">
-<pre>import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Named;</pre>
+<pre>import jakara.enterprise.context.ApplicationScoped;
+import jakarta.inject.Named;</pre>
 </div>
 </div>
 <div class="literalblock">
@@ -419,7 +419,7 @@ public class ClaimProcessor {...</pre>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>The Camel CXFRS component has been removed from Camel 3. Camel 3 now relies on the Camel REST component for the implementation of REST API endpoints. This provides separation of concerns between th REST interface and the REST implementation. It&#8217;s recommended to generate the REST interface from an OpenAPI specification.<br>
+<p>The Camel CXFRS component has been removed from Camel since v3. Camel now relies on the Camel REST component for the implementation of REST API endpoints. This provides separation of concerns between th REST interface and the REST implementation. It&#8217;s recommended to generate the REST interface from an OpenAPI specification.<br>
 Camel ships a Maven plugin to automate th creation of the required code from the openAPI document.<br></p>
 </div>
 </td>
