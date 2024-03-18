@@ -21,10 +21,10 @@ video::8NDm6XbEiJE[youtube, width=800, height=480, start=832]
 
 === Overview
 
-The templates are available in the following repository: https://github.com/mthirion/fuse-to-camel3-camelk[https://github.com/mthirion/fuse-to-camel3-camelk ^]
+The templates are available in the following repository: https://github.com/mthirion/fuse-to-camel3-camelk[https://github.com/mthirion/fuse-to-camel3-camelk/tree/4.0 ^]
 
 
-* The repository has a dedicated branch for each target version: currently *Camel 3.18* or *Camel 3.20*
+* The repository has a branch specific to the current Red Hat Build of Apache Camel 4.  
 +
 image:repo-branch.png[width=60%] 
 
@@ -55,10 +55,10 @@ First, clone the repository:  +
 
  $ git clone https://github.com/mthirion/fuse-to-camel3-camelk
 
-Enter the repository and switch, for example, to the 3.18 branch. +
+Enter the repository and switch to the 4.0 branch. +
 
  $ cd fuse-to-camel3-camelk
- $ git checkout 3.18
+ $ git checkout 4.0
 
 ==== Getting the source application
 The demoed example is a migration of a CXF-based REST API implemented using FUSE 6 + 
@@ -143,8 +143,8 @@ To complete it, proceed to follow the below steps.
 It's referenced by name as "claimProcessor", and correspond to the class org.blogdemo.claimdemo.ClaimProcessor.java. +
 Therefore, add the below annotation to that Java class:
 
- import javax.enterprise.context.ApplicationScoped;
- import javax.inject.Named;
+ import jakara.enterprise.context.ApplicationScoped;
+ import jakarta.inject.Named;
 
  @Named("claimProcessor")
  @ApplicationScoped
@@ -155,7 +155,7 @@ Therefore, add the below annotation to that Java class:
 +
 [NOTE]
 ====
-The Camel CXFRS component has been removed from Camel 3. Camel 3 now relies on the Camel REST component for the implementation of REST API endpoints. This provides separation of concerns between th REST interface and the REST implementation. It's recommended to generate the REST interface from an OpenAPI specification. +
+The Camel CXFRS component has been removed from Camel since v3. Camel now relies on the Camel REST component for the implementation of REST API endpoints. This provides separation of concerns between th REST interface and the REST implementation. It's recommended to generate the REST interface from an OpenAPI specification. +
 Camel ships a Maven plugin to automate th creation of the required code from the openAPI document. +
 ====
 +
