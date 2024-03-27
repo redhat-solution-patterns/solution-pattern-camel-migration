@@ -6,7 +6,7 @@
 = Architecture 
 
 The solution pattern leverages preconfigured, ready-to-use Quarkus and Spring Boot templates.
-Those templates contains placeholders where code and configration just need to be copy-pasted from the legacy application.
+Those templates contains placeholders where code and configuration just need to be copy-pasted from the legacy application.
 
 
 == Common Challenges 
@@ -40,11 +40,11 @@ Camel-based integration logic can be written in XML or Java, and can behave as a
 
 The present demo will take a legacy API developed in JBoss Fuse 6.2 on Karaf, in Blueprint XML.
 It's suggested that such an application targets the Quarkus runtime.
-The provided Quarkus template is 100% compatible with Camel K, so the resutling migrated application is immediately ready to be added to a serverless stack.
+The provided Quarkus template is 100% compatible with Camel K, so the resulting migrated application is immediately ready to be added to a serverless stack.
 
 The material can be used to migrate any Fuse 6 or 7 distribution to the Red Hat build of Apache Camel.
 The demos will however focus on migrating a Fuse 6 application, and more concretely a Camel v2.17 one, in Blueprint XML format, running on Karaf 2. The XML format will be converted to the optimized IO XML one.
-This path has been chosen for the demonstration because it can be considered the hardest one. Applications running on Fuse 7, no matter which distribution, could use the same approach and will bnefit from a shortest migration effort.
+This path has been chosen for the demonstration because it can be considered the hardest one. Applications running on Fuse 7, no matter which distribution, could use the same approach and will benefit from a shortest migration effort.
 
 In general, the following migration strategy should be considered:  
 
