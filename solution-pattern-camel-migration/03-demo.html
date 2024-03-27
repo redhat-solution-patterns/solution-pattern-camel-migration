@@ -274,9 +274,9 @@ For the rest of the document, this location will be referred to as $TARGET<br></
 </div>
 </div>
 <div class="sect3">
-<h4 id="_preparing_the_openshift_cluster"><a class="anchor" href="#_preparing_the_openshift_cluster"></a><a class="link" href="#_preparing_the_openshift_cluster">2.2.3. Preparing the Openshift cluster</a></h4>
+<h4 id="_preparing_the_openshift_cluster"><a class="anchor" href="#_preparing_the_openshift_cluster"></a><a class="link" href="#_preparing_the_openshift_cluster">2.2.3. Preparing the OpenShift cluster</a></h4>
 <div class="paragraph">
-<p>For th deployment to Openshift, you&#8217;ll just need access to a namespace on an Openshift cluster.<br>
+<p>For th deployment to OpenShift, you&#8217;ll just need access to a namespace on an OpenShift cluster.<br>
 Here below, we&#8217;ll call this namespace 'claimdemo-migration'.</p>
 </div>
 <div class="literalblock">
@@ -288,10 +288,12 @@ Here below, we&#8217;ll call this namespace 'claimdemo-migration'.</p>
 <div class="sect3">
 <h4 id="_preparing_camel_k_optional"><a class="anchor" href="#_preparing_camel_k_optional"></a><a class="link" href="#_preparing_camel_k_optional">2.2.4. Preparing Camel K (optional)</a></h4>
 <div class="paragraph">
-<p>If you want to test the migrated application as a serverless component, you&#8217;ll need an Openshift server with Camel K installed.<br>
-Install the Red Hat Camel K Operator to your Openshift cluster.
-Optionally you can also deploy the Openshift Serverless (Knative Serving and Knative Eventing) operators.<br>
-Make sure you also have the kamel CLI on your local machine, and of the same version as the Camel K Operator.<br>
+<p>If you want to test the migrated application as a serverless component, you&#8217;ll need an OpenShift server with Camel K installed.<br>
+Install the Red Hat Camel K Operator to your OpenShift cluster.
+Optionaly you can also deploy the OpenShift Serverless (Knative Serving and Knative Eventing) operators.<br></p>
+</div>
+<div class="paragraph">
+<p>Make sure you also have the kamel CLI on your local machine, and of the same version as the Camel K Operator.<br>
 For clarity, we&#8217;ll use a separate namespace for Camel K-related artefacts.  Let&#8217;s call it camel-migration.<br></p>
 </div>
 <div class="literalblock">
@@ -303,7 +305,7 @@ For clarity, we&#8217;ll use a separate namespace for Camel K-related artefacts.
 <p>Custom beans such as custom Camel processors as considered by Camel K as external dependencies.<br>
 Those dependencies need to be made available to Camel K at deployment/build time. <br>
 The best way to do that is to use an external Maven repository, such as Nexus.<br>
-It can be deployed on or outside of Openshift but needs to be reachable from it.</p>
+It can be deployed on or outside of OpenShift but needs to be reachable from it.</p>
 </div>
 <div class="paragraph">
 <p>Find the prepared Maven settings file:</p>
@@ -317,7 +319,7 @@ It can be deployed on or outside of Openshift but needs to be reachable from it.
 <p>Edit it, replacing the URL of th 2 repositories (nexus-camel and nexus-camel-snapshots) by the appropriate URL of your own Nexus server.</p>
 </div>
 <div class="paragraph">
-<p>Create a ConfigMap to hold this settings.xml on Openshift:</p>
+<p>Create a ConfigMap to hold this settings.xml on OpenShift:</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -519,10 +521,10 @@ $ mvn quarkus:dev</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_running_it_on_openshift"><a class="anchor" href="#_running_it_on_openshift"></a><a class="link" href="#_running_it_on_openshift">2.3.1. Running it on Openshift</a></h4>
+<h4 id="_running_it_on_openshift"><a class="anchor" href="#_running_it_on_openshift"></a><a class="link" href="#_running_it_on_openshift">2.3.1. Running it on OpenShift</a></h4>
 <div class="paragraph">
-<p>Thanks to the templates, the migrated application is already fully compatible with Openshift and can safely run immediately in containers.<br>
-To run it and test it on Openshift:</p>
+<p>Thanks to the templates, the migrated application is already fully compatible with OpenShift and can safely run immediately in containers.<br>
+To run it and test it on OpenShift:</p>
 </div>
 <div class="literalblock">
 <div class="content">
