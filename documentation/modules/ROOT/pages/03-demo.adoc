@@ -15,7 +15,7 @@ You can see a migration based on the templates in action here.
 video::8NDm6XbEiJE[youtube, width=800, height=480, start=832]
 
 //* https://drive.google.com/file/d/11CBxNI_2QI77uFeD7Dxqf32uDnAt9cKX/view?usp=drive_link[Migration toward Camel for Spring Boot and Camel extension for Quarkus^]
-//* https://drive.google.com/file/d/1DqTrlydgvJiKTe7y6oxuvY8K-SAve9xc/view?usp=drive_link[Running the migrated application on Openshift^]
+//* https://drive.google.com/file/d/1DqTrlydgvJiKTe7y6oxuvY8K-SAve9xc/view?usp=drive_link[Running the migrated application on OpenShift^]
 //* https://drive.google.com/file/d/11CBxNI_2QI77uFeD7Dxqf32uDnAt9cKX/view?usp=drive_link[Running the migrated application as a Camel K serverless function^]
 
 
@@ -82,16 +82,17 @@ For the rest of the document, this location will be referred to as $TARGET +
 
  $ TARGET=./templates/rest/ceq-xml-rest-app
 
-==== Preparing the Openshift cluster
-For th deployment to Openshift, you'll just need access to a namespace on an Openshift cluster. +
+==== Preparing the OpenShift cluster
+For th deployment to OpenShift, you'll just need access to a namespace on an OpenShift cluster. +
 Here below, we'll call this namespace 'claimdemo-migration'.
 
  $ oc new-project claimdemo-migration
 
 ==== Preparing Camel K (optional)
-If you want to test the migrated application as a serverless component, you'll need an Openshift server with Camel K installed. +
-Install the Red Hat Camel K Operator to your Openshift cluster. 
-Optionally you can also deploy the Openshift Serverless (Knative Serving and Knative Eventing) operators. +
+If you want to test the migrated application as a serverless component, you'll need an OpenShift server with Camel K installed. +
+Install the Red Hat Camel K Operator to your OpenShift cluster. 
+Optionaly you can also deploy the OpenShift Serverless (Knative Serving and Knative Eventing) operators. +
+
 Make sure you also have the kamel CLI on your local machine, and of the same version as the Camel K Operator. +
 For clarity, we'll use a separate namespace for Camel K-related artefacts.  Let's call it camel-migration. +
 
@@ -100,7 +101,7 @@ For clarity, we'll use a separate namespace for Camel K-related artefacts.  Let'
 Custom beans such as custom Camel processors as considered by Camel K as external dependencies. +
 Those dependencies need to be made available to Camel K at deployment/build time.  +
 The best way to do that is to use an external Maven repository, such as Nexus. +
-It can be deployed on or outside of Openshift but needs to be reachable from it.
+It can be deployed on or outside of OpenShift but needs to be reachable from it.
 
 Find the prepared Maven settings file:
 
@@ -108,7 +109,7 @@ Find the prepared Maven settings file:
 
 Edit it, replacing the URL of th 2 repositories (nexus-camel and nexus-camel-snapshots) by the appropriate URL of your own Nexus server.
 
-Create a ConfigMap to hold this settings.xml on Openshift:
+Create a ConfigMap to hold this settings.xml on OpenShift:
 
  $ oc create cm camel-k-maven-settings --from-file ./templates/camelk/script/settings.xml -n camel-migration
 
@@ -203,9 +204,9 @@ You can run it locally for validation with:
 
  $ cd -
 
-==== Running it on Openshift
-Thanks to the templates, the migrated application is already fully compatible with Openshift and can safely run immediately in containers. +
-To run it and test it on Openshift: 
+==== Running it on OpenShift
+Thanks to the templates, the migrated application is already fully compatible with OpenShift and can safely run immediately in containers. +
+To run it and test it on OpenShift: 
 
  $ oc project claimdemo-migration
  $ cd $TARGET
