@@ -217,7 +217,7 @@ To run it and test it on Openshift:
  $ cd -
 
 
-==== Turning the migrated application into a CamCamel KelK serverless function
+==== Turning the migrated application into a Camel K serverless function
 The template makes use of the new IO XML format, which makes the migrated application immediately compatible with Camel K. +
 
 As mentioned, with Camel K, the Java dependencies (custom Camel processor) need to be made externaly available, for example thanks to a Nexus repository +
