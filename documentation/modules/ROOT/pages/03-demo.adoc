@@ -48,7 +48,7 @@ Next, you can learn how to walkthrough this demo.
 === Before getting started
 To try out, you'll need Maven, and it's best to have a Java 17 runtime. +
 Maven needs to have access to the repository "https://maven.repository.redhat.com/ga/" for the dependencies. +
-To make things easier, it's better to use a visual Java IDE, such as Eclipse, Vscode...
+To make things easier, it's better to use a visual Java IDE, such as Eclipse, VS Code...
 
 === Setup
 First, clone the repository:  +
@@ -63,7 +63,7 @@ Enter the repository and switch to the 4.0 branch. +
 ==== Getting the source application
 The demoed example is a migration of a CXF-based REST API implemented using FUSE 6 + 
 The source code of that legacy application in the /fuse6-apps directory, under /rest/claimdemo +
-In the rest of the document, this location will be refered to as $SOURCE +
+In the rest of the document, this location will be referred to as $SOURCE +
 
  $ SOURCE=./fuse6-apps/rest/claimdemo
 
@@ -78,7 +78,7 @@ This application listens to API calls at http://localhost:8182/cxf/status/status
 ==== Identifying the target for the migration
 The present document will describe how to migrate the application to the Camel Extension for Quarkus runtime.  +
 We'll therefore start with the template located in the templates/rest/ceq-xml-rest-app directory. +
-For the rest of the document, this location will be refered to as $TARGET +
+For the rest of the document, this location will be referred to as $TARGET +
 
  $ TARGET=./templates/rest/ceq-xml-rest-app
 
@@ -91,7 +91,7 @@ Here below, we'll call this namespace 'claimdemo-migration'.
 ==== Preparing Camel K (optional)
 If you want to test the migrated application as a serverless component, you'll need an Openshift server with Camel K installed. +
 Install the Red Hat Camel K Operator to your Openshift cluster. 
-Optionaly you can also deploy the Openshift Serverless (Knative Serving and Knative Eventing) operators. +
+Optionally you can also deploy the Openshift Serverless (Knative Serving and Knative Eventing) operators. +
 Make sure you also have the kamel CLI on your local machine, and of the same version as the Camel K Operator. +
 For clarity, we'll use a separate namespace for Camel K-related artefacts.  Let's call it camel-migration. +
 
@@ -134,7 +134,7 @@ To complete it, proceed to follow the below steps.
 
  $ cp -r $SOURCE/src/main/java $TARGET/src/main/
 
-.. You can optionaly remove the Service interface, which is a class used specifically by the CXFRS framework, which is no longer the framework supporting REST API in Camel 3.
+.. You can optionally remove the Service interface, which is a class used specifically by the CXFRS framework, which is no longer the framework supporting REST API in Camel 3.
 
  $ rm $TARGET/src/main/java/org/blogdemo/claimdemo/StatusService.java
 
@@ -155,8 +155,8 @@ Therefore, add the below annotation to that Java class:
 +
 [NOTE]
 ====
-The Camel CXFRS component has been removed from Camel since v3. Camel now relies on the Camel REST component for the implementation of REST API endpoints. This provides separation of concerns between th REST interface and the REST implementation. It's recommended to generate the REST interface from an OpenAPI specification. +
-Camel ships a Maven plugin to automate th creation of the required code from the openAPI document. +
+The Camel CXFRS component has been removed from Camel since v3. Camel now relies on the Camel REST component for the implementation of REST API endpoints. This provides separation of concerns between the REST interface and the REST implementation. It's recommended to generate the REST interface from an OpenAPI specification. +
+Camel ships a Maven plugin to automate the creation of the required code from the openAPI document. +
 ====
 +
 .. Copy the OpenAPI spec to the Maven project and run the Maven plugin. +
@@ -180,7 +180,7 @@ Camel ships a Maven plugin to automate th creation of the required code from the
  <from id="_from4" uri="direct://getCustById"/>
 
 . *Final consideration upon CXFRS*
-.. The CXFRS library, based on the CXF framework initially designed for SOAP, made use of the saop-related "operationName" header to identify the target Java method to call. +
+.. The CXFRS library, based on the CXF framework initially designed for SOAP, made use of the soap-related "operationName" header to identify the target Java method to call. +
 This is not needed anymore, as the implementation now relies on the Camel REST library. +
 .. To makes the application forward compatible to new clients, it's best to get rid of that header constraints. +
 An easy (quick & dirty) way to do that is by replacing the condition in the camel route as follows:
@@ -220,8 +220,8 @@ To run it and test it on Openshift:
 ==== Turning the migrated application into a Camel K serverless function
 The template makes use of the new IO XML format, which makes the migrated application immediately compatible with Camel K. +
 
-As mentioned, with Camel K, the Java dependencies (custom Camel processor) need to be made externaly available, for example thanks to a Nexus repository +
-To do that, you can use the helpers found in the Camel K template directory, which will be refered to as $CAMELK +
+As mentioned, with Camel K, the Java dependencies (custom Camel processor) need to be made externally available, for example thanks to a Nexus repository +
+To do that, you can use the helpers found in the Camel K template directory, which will be referred to as $CAMELK +
 
  $ CAMELK=./templates/camelk
 
@@ -255,7 +255,7 @@ To do that, you first need to edit the pom.xml and correct the URL of the Nexus 
 You'll have to make sure that you have permission to write to the Nexus repository. +
 This means you will need to make an authenticated call to the Nexus server. +
 Credentials information are located in the settings.xml linked to your local Nexus (not the one we used to create a ConfigMap). +
-Your local file sould contain a <server> entry with the exact same "id" as the one listed in the pom.xml +
+Your local file should contain a <server> entry with the exact same "id" as the one listed in the pom.xml +
 
  <server>
    <id>nexus-camel</id>
