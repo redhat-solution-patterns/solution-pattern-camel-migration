@@ -212,7 +212,7 @@
 <div class="paragraph">
 <p>To try out, you&#8217;ll need Maven, and it&#8217;s best to have a Java 17 runtime.<br>
 Maven needs to have access to the repository "https://maven.repository.redhat.com/ga/" for the dependencies.<br>
-To make things easier, it&#8217;s better to use a visual Java IDE, such as Eclipse, Vscode&#8230;&#8203;</p>
+To make things easier, it&#8217;s better to use a visual Java IDE, such as Eclipse, VS Code&#8230;&#8203;</p>
 </div>
 </div>
 <div class="sect2">
@@ -239,7 +239,7 @@ $ git checkout 4.0</pre>
 <div class="paragraph">
 <p>The demoed example is a migration of a CXF-based REST API implemented using FUSE 6<br>
 The source code of that legacy application in the /fuse6-apps directory, under /rest/claimdemo<br>
-In the rest of the document, this location will be refered to as $SOURCE<br></p>
+In the rest of the document, this location will be referred to as $SOURCE<br></p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -265,7 +265,7 @@ $ docker run -it -p 8181:8181 -p 8182:8182 -p 8184:8184 weimeilin/fusefabric:nae
 <div class="paragraph">
 <p>The present document will describe how to migrate the application to the Camel Extension for Quarkus runtime. <br>
 We&#8217;ll therefore start with the template located in the templates/rest/ceq-xml-rest-app directory.<br>
-For the rest of the document, this location will be refered to as $TARGET<br></p>
+For the rest of the document, this location will be referred to as $TARGET<br></p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -290,7 +290,7 @@ Here below, we&#8217;ll call this namespace 'claimdemo-migration'.</p>
 <div class="paragraph">
 <p>If you want to test the migrated application as a serverless component, you&#8217;ll need an Openshift server with Camel K installed.<br>
 Install the Red Hat Camel K Operator to your Openshift cluster.
-Optionaly you can also deploy the Openshift Serverless (Knative Serving and Knative Eventing) operators.<br>
+Optionally you can also deploy the Openshift Serverless (Knative Serving and Knative Eventing) operators.<br>
 Make sure you also have the kamel CLI on your local machine, and of the same version as the Camel K Operator.<br>
 For clarity, we&#8217;ll use a separate namespace for Camel K-related artefacts.  Let&#8217;s call it camel-migration.<br></p>
 </div>
@@ -378,7 +378,7 @@ To complete it, proceed to follow the below steps.</p>
 </div>
 </li>
 <li>
-<p>You can optionaly remove the Service interface, which is a class used specifically by the CXFRS framework, which is no longer the framework supporting REST API in Camel 3.</p>
+<p>You can optionally remove the Service interface, which is a class used specifically by the CXFRS framework, which is no longer the framework supporting REST API in Camel 3.</p>
 <div class="literalblock">
 <div class="content">
 <pre>$ rm $TARGET/src/main/java/org/blogdemo/claimdemo/StatusService.java</pre>
@@ -419,8 +419,8 @@ public class ClaimProcessor {...</pre>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>The Camel CXFRS component has been removed from Camel since v3. Camel now relies on the Camel REST component for the implementation of REST API endpoints. This provides separation of concerns between th REST interface and the REST implementation. It&#8217;s recommended to generate the REST interface from an OpenAPI specification.<br>
-Camel ships a Maven plugin to automate th creation of the required code from the openAPI document.<br></p>
+<p>The Camel CXFRS component has been removed from Camel since v3. Camel now relies on the Camel REST component for the implementation of REST API endpoints. This provides separation of concerns between the REST interface and the REST implementation. It&#8217;s recommended to generate the REST interface from an OpenAPI specification.<br>
+Camel ships a Maven plugin to automate the creation of the required code from the openAPI document.<br></p>
 </div>
 </td>
 </tr>
@@ -474,7 +474,7 @@ $ cp -f $TARGET/target/generated-rest-sources/restdsl-openapi/camel-rest.xml $TA
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>The CXFRS library, based on the CXF framework initially designed for SOAP, made use of the saop-related "operationName" header to identify the target Java method to call.<br>
+<p>The CXFRS library, based on the CXF framework initially designed for SOAP, made use of the soap-related "operationName" header to identify the target Java method to call.<br>
 This is not needed anymore, as the implementation now relies on the Camel REST library.<br></p>
 </li>
 <li>
@@ -549,8 +549,8 @@ $ curl http://$ROUTE/cxf/status/custId/789</pre>
 <p>The template makes use of the new IO XML format, which makes the migrated application immediately compatible with Camel K.<br></p>
 </div>
 <div class="paragraph">
-<p>As mentioned, with Camel K, the Java dependencies (custom Camel processor) need to be made externaly available, for example thanks to a Nexus repository<br>
-To do that, you can use the helpers found in the Camel K template directory, which will be refered to as $CAMELK<br></p>
+<p>As mentioned, with Camel K, the Java dependencies (custom Camel processor) need to be made externally available, for example thanks to a Nexus repository<br>
+To do that, you can use the helpers found in the Camel K template directory, which will be referred to as $CAMELK<br></p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -604,7 +604,7 @@ $ mkdir -p $CAMELK/javadependency/src/main/java</pre>
 <p>You&#8217;ll have to make sure that you have permission to write to the Nexus repository.<br>
 This means you will need to make an authenticated call to the Nexus server.<br>
 Credentials information are located in the settings.xml linked to your local Nexus (not the one we used to create a ConfigMap).<br>
-Your local file sould contain a &lt;server&gt; entry with the exact same "id" as the one listed in the pom.xml<br></p>
+Your local file should contain a &lt;server&gt; entry with the exact same "id" as the one listed in the pom.xml<br></p>
 </div>
 <div class="literalblock">
 <div class="content">
