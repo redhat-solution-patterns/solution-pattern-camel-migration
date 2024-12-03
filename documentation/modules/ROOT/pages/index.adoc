@@ -8,7 +8,7 @@ Application Development is evolving as the modern Hybrid Cloud and cloud-native 
 
 As  Red Hat Fuse approaches product End of Life (EOL) on June 30, 2024,  Red Hat build of Apache Camel is the natural go-forward solution for integrations built around Red Hat Fuse which is based on an older version of Apache Camel. Fuse will remain in the https://access.redhat.com/support/policy/updates/jboss_notes#phases[maintenance life cycle^] until its EOL. 
 
-The https://developers.redhat.com/products/redhat-build-of-apache-camel/overview[Red Hat build of Apache Camel^] is the evolution for Red Hat Fuse, and  is a powerful, versatile framework for application integration. It also includes running Camel on Quarkus and Spring Boot runtimes in both on-premise and cloud environments, including the Camel K operator which streamlines building, deploying and operating Camel integrations on OpenShift.
+The https://developers.redhat.com/products/redhat-build-of-apache-camel/overview[Red Hat build of Apache Camel^] is the evolution for Red Hat Fuse, and  is a powerful, versatile framework for application integration. It also includes running Camel on Quarkus and Spring Boot runtimes in both on-premise and cloud environments.
 
 Performing such a migration can be scary as the effort is not just limited to migrating the high level Camel routes. Indeed, many other underlying technical components (JDK version, Runtime type, XML format etc.) are involved in the migration.
 
@@ -22,8 +22,8 @@ Contributors: _Michael Thirion (Red Hat)_
 
 Common use cases that can be address with this solution are:
 
-- Migrate Fuse 6.x (Blueprint XML, Spring XML or Java) applications to the Red Hat build of Apache Camel, targeting either Sprin Boot 3, Quarkus or Camel K.
-- Migrate Fuse 7 (Karaf or Spring Boot) applications to the Red Hat build of Apache Camel, targeting either Spring Boot 3, Quarkus or Camel K.
+- Migrate Fuse 6.x (Blueprint XML, Spring XML or Java) applications to the Red Hat build of Apache Camel, targeting either Sprin Boot 3, Quarkus.
+- Migrate Fuse 7 (Karaf or Spring Boot) applications to the Red Hat build of Apache Camel, targeting either Spring Boot 3, Quarkus.
 - Start writing Camel 4.x applications right away with no effort
 
 
